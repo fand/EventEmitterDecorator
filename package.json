@@ -4,11 +4,14 @@
   "description": "EventEmitter mixin as ES7 decorator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "$(npm bin)/mocha --compilers js:espower-babel/guess test/*.js"
   },
   "author": "fand",
   "license": "MIT",
   "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-runtime": "^5.8.20",
+    "espower-babel": "^3.2.0",
     "mocha": "^2.2.5",
     "power-assert": "^0.11.0"
   }
