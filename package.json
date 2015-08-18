@@ -1,12 +1,12 @@
 {
   "name": "eventemitter-decorator",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "EventEmitter mixin as ES7 decorator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "fand",
   "license": "MIT",
   "devDependencies": {
     "mocha": "^2.2.5",
