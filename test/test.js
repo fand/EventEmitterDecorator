@@ -2,6 +2,7 @@
 
 import EventEmitter from '../index';
 import assert from 'power-assert';
+import sinon from 'sinon';
 
 describe('EventEmitter', function() {
 
@@ -9,51 +10,52 @@ describe('EventEmitter', function() {
   class Foo {}
 
   let foo;
+  let listener = sinon.spy(_ => _);
 
   beforeEach(function () {
     foo = new Foo();
+    listener.reset();
   });
 
   it('on, emit', function () {
-    let args = [];
-    foo.on('yo', function () {
-      args.push([].slice.call(arguments));
-    });
+    foo.on('yo', listener);
 
     foo.emit('yo');
-    assert(args.length === 1, 'The listener was called');
-    assert(args[0].length === 0, 'No arguments passed');
+    assert(listener.calledOnce, 'The listener was called');
+    assert(listener.args[0].length === 0, 'No arguments passed');
 
     foo.emit('yo', 1, 2, 3);
-    assert(args.length === 2, 'The listener was called again');
-    assert.deepEqual(args[1], [1, 2, 3], 'Arguments were passed to the listener');
+    assert(listener.calledTwice, 'The listener was called again');
+    assert.deepEqual(
+      listener.args[1],
+      [1, 2, 3],
+      'Arguments were passed to the listener'
+    );
   });
 
   it('once', function () {
-    let args = [];
-    foo.once('yo', function () {
-      args.push([].slice.call(arguments));
-    });
+    foo.once('yo', listener);
 
     foo.emit('yo');
-    assert(args.length === 1, 'The listener was called');
+    assert(listener.calledOnce, 'The listener was called');
 
     foo.emit('yo');
-    assert(args.length === 1, 'The listener was NOT called twice');
+    assert(listener.calledOnce, 'The listener was NOT called twice');
   });
 
   it('addListener', function () {
-    let args = [];
-    foo.addListener('yo', function () {
-      args.push([].slice.call(arguments));
-    });
+    foo.addListener('yo', listener);
 
     foo.emit('yo');
-    assert(args.length === 1, 'The listener was called');
+    assert(listener.calledOnce, 'The listener was called');
 
     foo.emit('yo', 1, 2, 3);
-    assert(args.length === 2, 'The listener was called again');
-    assert.deepEqual(args[1], [1, 2, 3], 'Arguments were passed to the listener');
+    assert(listener.calledTwice, 'The listener was called again');
+    assert.deepEqual(
+      listener.args[1],
+      [1, 2, 3],
+      'Arguments were passed to the listener'
+    );
   });
 
   it('listeners', function () {
