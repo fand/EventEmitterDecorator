@@ -4,11 +4,17 @@ import EventEmitter from '../index';
 import assert from 'power-assert';
 
 describe('EventEmitter', function() {
-  it('on, emit', function () {
-    @EventEmitter
-    class Foo {}
-    const foo = new Foo();
 
+  @EventEmitter
+  class Foo {}
+
+  let foo;
+
+  beforeEach(function () {
+    foo = new Foo();
+  });
+
+  it('on, emit', function () {
     let args = [];
     foo.on('yo', function () {
       args.push([].slice.call(arguments));
@@ -24,10 +30,6 @@ describe('EventEmitter', function() {
   });
 
   it('once', function () {
-    @EventEmitter
-    class Foo {}
-    const foo = new Foo();
-
     let args = [];
     foo.once('yo', function () {
       args.push([].slice.call(arguments));
@@ -41,10 +43,6 @@ describe('EventEmitter', function() {
   });
 
   it('addListener', function () {
-    @EventEmitter
-    class Foo {}
-    const foo = new Foo();
-
     let args = [];
     foo.addListener('yo', function () {
       args.push([].slice.call(arguments));
@@ -59,10 +57,6 @@ describe('EventEmitter', function() {
   });
 
   it('listeners', function () {
-    @EventEmitter
-    class Foo {}
-    const foo = new Foo();
-
     assert.deepEqual(foo.listeners('yo'), [], 'There are no listeners');
 
     const listener1 = () => 1;
