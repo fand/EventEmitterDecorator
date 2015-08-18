@@ -35,7 +35,7 @@ export default function EventEmitterDecorator (klass) {
 
     klass.prototype[method] = function () {
       const emitter = getEmitter(this);
-      emitter[method].apply(emitter, arguments);
+      return emitter[method].apply(emitter, arguments);
     };
   });
 
