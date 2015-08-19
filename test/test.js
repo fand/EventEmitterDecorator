@@ -74,4 +74,29 @@ describe('EventEmitter', function() {
     );
   });
 
+  it('removeListener', function () {
+    foo.on('yo', listener);
+
+    foo.removeListener('yo', listener);
+    foo.emit('yo');
+
+    assert.deepEqual(foo.listeners('yo'), [], 'The listeners are removed');
+    assert(listener.notCalled, 'No listeners were called');
+  });
+
+  it('removeAllListener', function () {
+    const listener1 = sinon.spy(() => 1);
+    const listener2 = sinon.spy(() => 2);
+
+    foo.on('yo', listener1);
+    foo.on('ho', listener2);
+
+    foo.removeAllListeners();
+
+    foo.emit('yo');
+    foo.emit('ho');
+
+    assert(listener1.notCalled && listener2.notCalled, 'No listeners were called');
+  });
+
 });
