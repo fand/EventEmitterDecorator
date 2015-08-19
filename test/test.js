@@ -100,6 +100,8 @@ describe('EventEmitter', function() {
   });
 
   it('setMaxListeners, getMaxListeners', function () {
+    if (!foo.setMaxListeners || !foo.getMaxListeners) { return; }
+
     foo.setMaxListeners(1);
     assert(foo.getMaxListeners() === 1, 'set');
 

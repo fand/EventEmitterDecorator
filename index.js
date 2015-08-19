@@ -33,6 +33,7 @@ export default function EventEmitterDecorator (klass) {
       throw new Error(`"${method}" method is already defined!`);
     }
 
+    if (! EventEmitter.prototype[method]) { return; }
     klass.prototype[method] = function () {
       const emitter = getEmitter(this);
       return emitter[method].apply(emitter, arguments);
