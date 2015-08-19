@@ -1,11 +1,12 @@
 {
   "name": "eventemitter-decorator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "EventEmitter mixin as ES7 decorator",
   "main": "index.js",
   "scripts": {
     "test": "$(npm bin)/mocha --compilers js:espower-babel/guess test/*.js"
   },
+  "repository" : "https://github.com/fand/EventEmitterDecorator",
   "author": "fand",
   "license": "MIT",
   "devDependencies": {
