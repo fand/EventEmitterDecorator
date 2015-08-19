@@ -99,4 +99,20 @@ describe('EventEmitter', function() {
     assert(listener1.notCalled && listener2.notCalled, 'No listeners were called');
   });
 
+  it('setMaxListeners, getMaxListeners', function () {
+    foo.setMaxListeners(1);
+    assert(foo.getMaxListeners() === 1, 'set');
+
+    const listener1 = sinon.spy(() => 1);
+    const listener2 = sinon.spy(() => 2);
+
+    foo.on('yo', listener1);
+    assert.doesNotThrow(() => foo.on('yo', listener2), 'It just warns, not throw errors');
+
+    foo.emit('yo');
+
+    assert(listener1.calledOnce, 'listener1 called');
+    assert(listener2.calledOnce, 'listener2 called');
+  });
+
 });
