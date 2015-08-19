@@ -1,6 +1,6 @@
 {
   "name": "eventemitter-decorator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "EventEmitter mixin as ES7 decorator",
   "main": "index.js",
   "scripts": {
