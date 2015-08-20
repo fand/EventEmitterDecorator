@@ -4,7 +4,7 @@ import EventEmitter from '../index';
 import assert from 'power-assert';
 import sinon from 'sinon';
 
-describe('EventEmitter', function() {
+describe('EventEmitter', () => {
 
   @EventEmitter
   class Foo {}
@@ -12,12 +12,12 @@ describe('EventEmitter', function() {
   let foo;
   let listener = sinon.spy(_ => _);
 
-  beforeEach(function () {
+  beforeEach(() => {
     foo = new Foo();
     listener.reset();
   });
 
-  it('on, emit', function () {
+  it('on, emit', () => {
     foo.on('yo', listener);
 
     foo.emit('yo');
@@ -33,7 +33,7 @@ describe('EventEmitter', function() {
     );
   });
 
-  it('once', function () {
+  it('once', () => {
     foo.once('yo', listener);
 
     foo.emit('yo');
@@ -43,7 +43,7 @@ describe('EventEmitter', function() {
     assert(listener.calledOnce, 'The listener was NOT called twice');
   });
 
-  it('addListener', function () {
+  it('addListener', () => {
     foo.addListener('yo', listener);
 
     foo.emit('yo');
@@ -58,7 +58,7 @@ describe('EventEmitter', function() {
     );
   });
 
-  it('listeners', function () {
+  it('listeners', () => {
     assert.deepEqual(foo.listeners('yo'), [], 'There are no listeners');
 
     const listener1 = () => 1;
@@ -74,7 +74,7 @@ describe('EventEmitter', function() {
     );
   });
 
-  it('removeListener', function () {
+  it('removeListener', () => {
     foo.on('yo', listener);
 
     foo.removeListener('yo', listener);
@@ -84,7 +84,7 @@ describe('EventEmitter', function() {
     assert(listener.notCalled, 'No listeners were called');
   });
 
-  it('removeAllListener', function () {
+  it('removeAllListener', () => {
     const listener1 = sinon.spy(() => 1);
     const listener2 = sinon.spy(() => 2);
 
@@ -99,7 +99,7 @@ describe('EventEmitter', function() {
     assert(listener1.notCalled && listener2.notCalled, 'No listeners were called');
   });
 
-  it('setMaxListeners, getMaxListeners', function () {
+  it('setMaxListeners, getMaxListeners', () => {
     if (!foo.setMaxListeners || !foo.getMaxListeners) { return; }
 
     foo.setMaxListeners(1);

@@ -18,13 +18,13 @@ const methods = [
   'getMaxListeners',
 ];
 
-describe('Class', function() {
+describe('Class', () => {
 
-  it('throws errors when the class already has methods named same as EventEmitter methods', function () {
+  it('throws errors when the class already has methods named same as EventEmitter methods', () => {
 
     methods.forEach((method) => {
       if (! EventEmitter.prototype[method]) { return; }
-      assert.throws(function () {
+      assert.throws(() => {
           @EventEmitterDecorator
           class Foo {
             [method] () {}
@@ -38,11 +38,11 @@ describe('Class', function() {
 
 describe('SubClass', function() {
 
-  it('throws errors when the base class of the class already has methods named same as EventEmitter methods', function () {
+  it('throws errors when the base class of the class already has methods named same as EventEmitter methods', () => {
 
     methods.forEach((method) => {
       if (! EventEmitter.prototype[method]) { return; }
-      assert.throws(function () {
+      assert.throws(() => {
 
           class Bar {
             [method] () {}
