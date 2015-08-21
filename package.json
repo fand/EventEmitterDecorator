@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "$(npm bin)/mocha --compilers js:espower-babel/guess test/*.js",
-    "coverage": "$(npm bin)/babel-node $(npm bin)/isparta cover --report text --report html $(npm bin)/_mocha -- --reporter dot"
+    "cover": "$(npm bin)/babel-node $(npm bin)/isparta cover --report lcovonly --report html $(npm bin)/_mocha -- --reporter dot && cat ./coverage/lcov.info | $(npm bin)/coveralls && rm -rf ./coverage"
   },
   "repository": "https://github.com/fand/EventEmitterDecorator",
   "author": "fand",
@@ -13,6 +13,7 @@
   "devDependencies": {
     "babel": "^5.8.21",
     "babel-runtime": "^5.8.20",
+    "coveralls": "^2.11.4",
     "espower-babel": "^3.2.0",
     "isparta": "^3.0.3",
     "mocha": "^2.2.5",
