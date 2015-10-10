@@ -1,8 +1,8 @@
 'use strict';
 
-import EventEmitter from '../index';
-import assert from 'power-assert';
-import sinon from 'sinon';
+import EventEmitter from '../src';
+import assert       from 'power-assert';
+import sinon        from 'sinon';
 
 describe('EventEmitter', () => {
 

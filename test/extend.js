@@ -1,9 +1,9 @@
 'use strict';
 
-import EventEmitter from 'events';
-import EventEmitterDecorator from '../index';
-import assert from 'power-assert';
-import sinon from 'sinon';
+import EventEmitter          from 'events';
+import EventEmitterDecorator from '../src';
+import assert                from 'power-assert';
+import sinon                 from 'sinon';
 
 const methods = [
   'addListener',
