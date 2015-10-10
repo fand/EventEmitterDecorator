@@ -37,7 +37,7 @@
   "scripts": {
     "build": "$(npm bin)/babel src --out-dir lib",
     "clean": "$(npm bin)/rimraf lib coverage",
-    "cover": "$(npm bin)/babel-node $(npm bin)/isparta cover --report lcovonly --report html $(npm bin)/_mocha -- --reporter dot && cat ./coverage/lcov.info | $(npm bin)/coveralls && rm -rf ./coverage",
+    "cover": "$(npm bin)/babel-node $(npm bin)/isparta cover --report lcovonly --report html $(npm bin)/_mocha -- --reporter dot && cat ./coverage/lcov.info | $(npm bin)/coveralls",
     "postversion": "git push && git push --tags && npm run clean",
     "prepublish": "npm run clean && npm run build",
     "preversion": "npm run clean && npm run test",

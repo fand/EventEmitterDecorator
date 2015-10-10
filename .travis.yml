@@ -1,4 +1,9 @@
 language: node_js
+env:
+  global:
+    secure: VjAogYCHgVVnrTQOpao70r2RTlKnE3L/xY4JOltcNQAF+4W8rWVIv5VubKSv7dh6WjIkF4GdwnKQNPBUrKm0NMr0G2iVzEEiOOdamsn2Fibb3aSCsPAvxgiHURUOdnT8cEZC/SF/Vg1z4Q4nsrXlg0s1r6RTV9/heZlhc4Rq4EHi1oJ/cMTqsAUzhqu5M7FXeBrYYmOKZZNs3hmnP7CSPlj2y3gh8n10LwefQrO4MJykcL1yjnezXE73NoLYirOxyv1+nHLvshZ1uGd336xnulQbaFTiv8w80Kr76jbSV+nZxOfxPcITLUZ/GkAh5ehB5oSaC1bd36LwONxaR7SCdQmXwxvyDAfaXyT9wukCanpHxIMvr+Rss4+uiveeb3kGL6C/yJ+xfr260wDEFr10ORSzQ6xhxXa9VYttOLxORe+8wdCFaL6bLPZdziUHK6Bbzof52+maNBUcSAjouZZ4ioWf0Q7jzIbLS1US+3lL6hNZsjDrPW5/UxPcb6ev1vpauMTHHAD5HP0QOyPHo2UKIdwpNAD9fslFQxCw7j+HSLK85qWShnRgzw9Pi/pbzD6DZMoxIuFQbt3VTfaNfZIdfW8V6hDVhSUdjmFPAFQ8gjyqXV1vyyBD2etax7fRxzL7UXQkqzkPZe9iH4A0mz5wDghqch+10mzrIqJXcBMgZ18=
 node_js:
+  - "4.1"
   - "0.12"
-  - "iojs"
+script:
+  - npm run cover
