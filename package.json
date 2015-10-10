@@ -1,22 +1,11 @@
 {
   "name": "eventemitter-decorator",
-  "version": "0.1.2",
   "description": "EventEmitter mixin as ES7 decorator",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "$(npm bin)/mocha --compilers js:espower-babel/guess test/*.js",
-    "posttest": "npm run cover",
-    "cover": "$(npm bin)/babel-node $(npm bin)/isparta cover --report lcovonly --report html $(npm bin)/_mocha -- --reporter dot && cat ./coverage/lcov.info | $(npm bin)/coveralls && rm -rf ./coverage",
-    "build": "$(npm bin)/babel src --out-dir lib",
-    "clean": "$(npm bin)/rimraf lib",
-    "postversion": "git push && git push --tags && npm run clean",
-    "prepublish": "npm run clean && npm run build",
-    "preversion": "npm run clean && npm run test",
-    "version": "npm run build"
-  },
-  "repository": "https://github.com/fand/EventEmitterDecorator",
+  "version": "0.1.2",
   "author": "fand",
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fand/EventEmitterDecorator/issues"
+  },
   "devDependencies": {
     "babel": "^5.8.21",
     "babel-runtime": "^5.8.20",
@@ -26,5 +15,33 @@
     "mocha": "^2.2.5",
     "power-assert": "^0.11.0",
     "sinon": "^1.15.4"
+  },
+  "files": [
+    "README.md",
+    "package.json",
+    "lib"
+  ],
+  "homepage": "https://github.com/fand/EventEmitterDecorator",
+  "keywords": [
+    "ES7",
+    "EventEmitter",
+    "decorator"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fand/EventEmitterDecorator.git"
+  },
+  "scripts": {
+    "build": "$(npm bin)/babel src --out-dir lib",
+    "clean": "$(npm bin)/rimraf lib",
+    "cover": "$(npm bin)/babel-node $(npm bin)/isparta cover --report lcovonly --report html $(npm bin)/_mocha -- --reporter dot && cat ./coverage/lcov.info | $(npm bin)/coveralls && rm -rf ./coverage",
+    "posttest": "npm run cover",
+    "postversion": "git push && git push --tags && npm run clean",
+    "prepublish": "npm run clean && npm run build",
+    "preversion": "npm run clean && npm run test",
+    "test": "$(npm bin)/mocha --compilers js:espower-babel/guess test/*.js",
+    "version": "npm run build"
   }
 }
