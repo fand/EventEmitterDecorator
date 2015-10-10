@@ -13,7 +13,7 @@
     "espower-babel": "^3.2.0",
     "isparta": "^3.0.3",
     "mocha": "^2.2.5",
-    "power-assert": "^0.11.0",
+    "power-assert": "^1.1.0",
     "rimraf": "^2.4.3",
     "sinon": "^1.15.4"
   },
